@@ -1,0 +1,12 @@
+{% extends 'produit/base.html' %} {% block content %}
+<div class="row">
+	<div class="col-sm-8 offset-2">
+		<h4>Modifier les informations de l'étudiant numéro {{id}}</h4>
+		<form action="" method="POST">
+			{% csrf_token %} {{form.as_p}}
+			<input type="submit" class="btn btn-success" value="Modifier" />
+			<a href="{% url 'addandshow' %}" class="btn btn-info">Précèdent</a>
+		</form>
+	</div>
+</div>
+{% endblock content%}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Gestion Stock</title>
+		<link rel="stylesheet" href="{% static 'produit/css/bootstrap.css' %}" />
+	</head>
+	<body>
+		<div class="container mt-5">
+			<h2
+				class="text-center alert p-3 text-primary-emphasis bg-primary border border-primary-subtle rounded-3"
+			>
+				Application de Gestrion de Stock
+			</h2>
+			{% block content%} {% endblock content%}
+		</div>
+		<script src="{% static 'produit/js/bootstrap.js' %}"></script>
+		<script src="{% static 'produit/js/jquery.js' %}"></script>
+		<script src="{% static 'produit/js/popper.js' %}"></script>
+	</body>
+</html>

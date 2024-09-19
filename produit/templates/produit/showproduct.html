@@ -1,0 +1,27 @@
+{% extends 'produit/base.html' %} {% block content %} {% load static %}
+
+<h4 class="text-center alert alert-info">Affichage des détails du produit</h4>
+{% if stu %}
+<div class="card text-center mx-auto" style="width: 70%">
+	<div class="card-header">Titre: {{stu.titre}}</div>
+	<img
+		src="{% static 'produit/media/produit.png'%}"
+		class="card-img-top mx-auto"
+		style="width: 18rem"
+		alt="image-produit"
+	/>
+	<div class="card-body">
+		<p class="card-text">
+			<strong>Description</strong><br />
+			{{stu.description}}
+		</p>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">Prix: {{stu.prix}}</li>
+			<li class="list-group-item">Nombre: {{stu.nombre}}</li>
+		</ul>
+	</div>
+	<div class="card-footer text-body-secondary">2 days ago</div>
+</div>
+{% else %}
+<h4 class="text-center alert alert-warning">Pas d'informations</h4>
+{% endif %} {% endblock content %}

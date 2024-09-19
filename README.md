@@ -8,3 +8,11 @@ son serveur Apach pour gérer notre base de données SQL
 
 Pour pouvoir éxecuter le projet il faut d'abord avoir Xamp et Django déja installé
 une fois celà fait éxecuter d'abord les migrations avant de pouvoir lancer le projet
+
+Commandes à éxecuter:
+### python pip install Django
+### pip install mysqlclient
+### pip install pymysql  
+### python manage.py CREATE DATABASE sondage
+### python manage.py makemigrations
+### python manage.py migrate

@@ -21,7 +21,9 @@ from produit import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.add_show, name="addandshow"),
+    path("", views.homepage, name="home"),
+    # path("/addandshow", views.add_show, name="login"),
+    path("addandshow", views.add_show, name="addandshow"),
     path("delete/<int:id>/", views.delete_data, name="deletedata"),
     path("update/<int:id>/", views.update_data, name="updatedata"),
     path("show/<int:id>/", views.show_data, name="showdata"),

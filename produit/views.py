@@ -1,10 +1,35 @@
-from django.shortcuts import render, HttpResponseRedirect
-from .forms import ProductRegistration
-from .models import Product
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from .forms import ProductRegistration, UserRegistration
+from .models import Product, User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 
 # Create your views here.
-# Fonction d'ajout et d'affichage des infos d'un étudiant
+# Affichage de la page d'accueil
+# @login_required(login_url="home")
+
+
+def homepage(request):
+    fm = UserRegistration(request.POST or None)
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        # Authentification de l'utilisateur
+        user = authenticate(request, username=username, password=password)
+        if user:
+            login(request, user)
+            return redirect("addandshow")  # Rediriger après une connexion réussie
+        else:
+            # Ajoute une erreur en cas de connexion échouée
+            fm.add_error(None, "Nom d'utilisateur ou mot de passe incorrect.")
+
+    return render(request, "produit/login.html", {"form": fm})
+
+
+# Fonction d'ajout et d'affichage des infos des produits
 def add_show(request):
     if request.method == "POST":
         fm = ProductRegistration(request.POST)

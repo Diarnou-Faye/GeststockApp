@@ -1,0 +1,9 @@
+{% extends 'produit/base.html' %} {% block content %}
+<div class="mx-auto col-sm-6">
+	<h4 class="text-center alert alert-info">Connexion</h4>
+	<form action="{% url 'home' %}" method="POST">
+		{% csrf_token %} {{form.as_p}}
+		<input type="submit" class="btn btn-success" value="Connexion" />
+	</form>
+</div>
+{% endblock content %}
